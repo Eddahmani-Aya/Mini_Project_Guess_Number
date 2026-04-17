@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu : Devine le nombre</title>
+</head>
+<body>
+    <h2>🎲 Jeu : Devine le nombre entre 1 et 10</h2>
+
+    <?php
+        // Si le formulaire n’a pas encore été soumis, on le montre
+        if (!isset($_POST["nombre"])) {
+    ?>
+        <form method="post">
+            <label>Entre un nombre entre 1 et 10 :</label>
+            <input type="number" name="nombre" min="1" max="10" required>
+            <input type="submit" value="Deviner">
+        </form>
+    <?php
+    } else {
+        // Nombre saisi par l’utilisateur
+        $nombreUtilisateur = $_POST["nombre"];
+
+        // Nombre secret généré par l’ordinateur
+        $nombreSecret = rand(1, 10);
+
+        echo "<p>Tu as choisi : <strong>$nombreUtilisateur</strong></p>";
+        echo "<p>Le nombre secret était : <strong>$nombreSecret</strong></p>";
+
+        // Condition pour comparer les deux nombres
+        if ($nombreUtilisateur == $nombreSecret) {
+            echo "<h3 style='color:green;'>Bravo 🎉 ! Tu as trouvé le bon nombre !</h3>";
+        } elseif ($nombreUtilisateur > $nombreSecret) {
+            echo "<h3 style='color:orange;'>Trop grand 😅 ! Essaie un nombre plus petit.</h3>";
+        } else {
+            echo "<h3 style='color:blue;'>Trop petit 😅 ! Essaie un nombre plus grand.</h3>";
+        }
+
+        // Bouton pour rejouer
+        echo "<br><a href='".$_SERVER['PHP_SELF']."'>Rejouer 🔁</a>";
+    }
+    ?>
+</body>
+</html>

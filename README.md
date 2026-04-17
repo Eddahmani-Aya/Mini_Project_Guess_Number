@@ -10,20 +10,13 @@ This is a simple Java game where the player tries to guess a randomly generated 
 - The game continues until the correct number is guessed
 
 ## Objectives
-- Practice Java basics
+- Practice PHP basics
 - Use loops and conditions
 - Work with user input
 - Understand random number generation
 
 ## Technologies
-- Java
-
-## How to Run
-1. Open terminal or IDE
-2. Compile:
-   javac GuessNumber.java
-3. Run:
-   java GuessNumber
+- PHP
 
 ## Author
 Aya Neeko
